@@ -41,7 +41,7 @@ const reducer = (state = initialState, action: GameAction): InterfaceStartGame =
 				...initialState,
 				startGame: true,
 				gameOption: {
-					...initialState.gameOption,
+					...state.gameOption,
 					start: startPosition,
 					finish: randomFinish,
 					steps: stepArray,
