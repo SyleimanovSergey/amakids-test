@@ -1,0 +1,46 @@
+@keyframes visibleElem {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.stepItem {
+	width: 50px;
+	height: 50px;
+	background-color: #977575;
+	border-radius: 10px;
+}
+
+.arrow {
+	width: 100%;
+	height: 100%;
+	animation-name: visibleElem;
+	visibility: visible;
+	background-position: center center;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+	background-image: url('../../../assets/images/arrow.png');
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+.up {
+	transform: rotate(-90deg);
+}
+
+.down {
+	transform: rotate(90deg);
+}
+
+.left {
+	transform: rotate(180deg);
+}
+
+.right {
+	transform: inherit;
+}
