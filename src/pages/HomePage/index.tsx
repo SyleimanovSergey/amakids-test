@@ -30,7 +30,7 @@ const SettingPage: React.FC = () => {
 
 	return (
 		<div className={styles.setting}>
-			<div className={styles.about}>В этой игре вам необходимо найти токи старта.</div>
+			<div className={styles.about}>В этой игре вам необходимо найти точки старта.</div>
 			<div className={styles.blockInput}>
 				<label className={styles.label}>
 					Укажите размер поля (макс: 8)
