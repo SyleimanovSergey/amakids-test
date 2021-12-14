@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import { InterfaceStepItem } from 'types/Maze';
 
+import arrow from 'assets/images/arrow.png';
 import styles from './index.module.scss';
-import 'assets/images/arrow.png'
 
 const StepItem: React.FC<InterfaceStepItem> = (props) => {
 	const { typeArrow, wait } = props;
@@ -12,7 +12,7 @@ const StepItem: React.FC<InterfaceStepItem> = (props) => {
 	useEffect(() => {
 		const interval = setTimeout(() => {
 			setHidden(false);
-		}, 1000 * wait);
+		}, 1000 * (wait + 1));
 		return () => clearInterval(interval);
 	}, [hidden, wait]);
 
@@ -20,7 +20,7 @@ const StepItem: React.FC<InterfaceStepItem> = (props) => {
 
 	return (
 		<div className={styles.stepItem}>
-			<div id={typeArrow} className={styleItem} />
+			<img src={arrow} className={styleItem} alt="#" />
 		</div>
 	);
 };

@@ -3,20 +3,14 @@
 	height: 100%;
 	background-color: rgba(102, 219, 89, 0.51);
 	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.finish {
-	background-image: url('../../assets/images/finish.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 80%;
-}
-
-.start {
-	background-image: url('../../assets/images/start.png');
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: 80%;
+.img {
+	width: 80%;
+	height: 80%;
 }
 
 .fail {

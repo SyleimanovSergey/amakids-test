@@ -6,10 +6,10 @@ import { useGameAction } from 'hooks/useActions';
 
 import { InterfaceMazeCell } from 'types/Maze';
 
-import styles from './index.module.scss';
-import "assets/images/finish.png"
-import "assets/images/start.png"
+import finishImg from 'assets/images/finish.png';
+import startImg from 'assets/images/start.png';
 
+import styles from './index.module.scss';
 
 const MazeCell: React.FC<InterfaceMazeCell> = (props) => {
 	const { id: MazeCellId } = props;
@@ -20,17 +20,7 @@ const MazeCell: React.FC<InterfaceMazeCell> = (props) => {
 
 	useEffect(() => setFail(false), [finish, start]);
 
-	let styleItem;
-
-	if (finish === MazeCellId) {
-		styleItem = `${styles.cell} ${styles.finish}`;
-	} else if (stopGame && start !== '' && fail) {
-		styleItem = `${styles.cell} ${styles.fail}`;
-	} else if (stopGame && start === MazeCellId) {
-		styleItem = `${styles.cell} ${styles.start}`;
-	} else {
-		styleItem = `${styles.cell}`;
-	}
+	const styleItem = stopGame && start !== '' && fail ? `${styles.cell} ${styles.fail}` : `${styles.cell}`;
 
 	const onClick = (e: React.MouseEvent<HTMLDivElement>) => {
 		if (stopGame) return;
@@ -57,7 +47,10 @@ const MazeCell: React.FC<InterfaceMazeCell> = (props) => {
 	};
 
 	return (
-		<div className={styleItem} id={MazeCellId} onClick={onClick} role="button" tabIndex={0} onKeyPress={onKeyDown} />
+		<div className={styleItem} id={MazeCellId} onClick={onClick} role="button" tabIndex={0} onKeyPress={onKeyDown}>
+			{start === MazeCellId && stopGame && <img src={startImg} alt="Start" className={styles.img} />}
+			{finish === MazeCellId && <img src={finishImg} alt="Finish" className={styles.img} />}
+		</div>
 	);
 };
 
