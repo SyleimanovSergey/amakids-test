@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { InterfaceStepItem } from 'types/Maze';
 
 import styles from './index.module.scss';
+import 'assets/images/arrow.png'
 
 const StepItem: React.FC<InterfaceStepItem> = (props) => {
 	const { typeArrow, wait } = props;

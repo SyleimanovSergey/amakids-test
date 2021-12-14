@@ -7,6 +7,9 @@ import { useGameAction } from 'hooks/useActions';
 import { InterfaceMazeCell } from 'types/Maze';
 
 import styles from './index.module.scss';
+import "assets/images/finish.png"
+import "assets/images/start.png"
+
 
 const MazeCell: React.FC<InterfaceMazeCell> = (props) => {
 	const { id: MazeCellId } = props;
