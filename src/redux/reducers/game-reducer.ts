@@ -21,6 +21,7 @@ const reducer = (state = initialState, action: GameAction): InterfaceStartGame =
 			const mazeGrid: string[][] = [];
 
 			const randomFinishArray: string[] = [];
+
 			// Создаем поле согласна задданым размерам
 			for (let i = 0; i < sizeField; i++) {
 				const mazeLine: string[] = [];
@@ -35,8 +36,15 @@ const reducer = (state = initialState, action: GameAction): InterfaceStartGame =
 
 			// Создаем финишнию позицию
 			const randomFinish: string = randomFinishArray[Math.floor(Math.random() * randomFinishArray.length)];
-			const stepArray = addStep(sizeField, mazeGrid, randomFinish, numberSteps);
-			const startPosition = stepArray[9].newPosition;
+			let stepArray = addStep(sizeField, mazeGrid, randomFinish, numberSteps);
+			let startPosition = stepArray[stepArray.length - 1].newPosition;
+
+			if (startPosition === randomFinish) {
+				console.log('/');
+				stepArray = addStep(sizeField, mazeGrid, randomFinish, numberSteps);
+				startPosition = stepArray[stepArray.length - 1].newPosition;
+			}
+
 			return {
 				...initialState,
 				startGame: true,

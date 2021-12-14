@@ -50,19 +50,12 @@ function getPosition(stepName: string, positionPrev: string, grid: string[][]): 
 
 export function addStep(size: number, grid: string[][], finish: string, steps: number): MoveArray[] {
 	const stepArray: MoveArray[] = [];
-	let step = '';
-	let newPosition = '';
+
 	for (let i = 0; i < steps; i++) {
-		if (i === 0) {
-			step = randomStep(finish.split(''), size);
-			newPosition = getPosition(step, finish, grid);
-		} else if (finish.includes(newPosition)) {
-			step = randomStep(stepArray[i - 1].newPosition.split(''), size);
-			newPosition = getPosition(step, stepArray[i - 1].newPosition, grid);
-		} else {
-			step = randomStep(stepArray[i - 1].newPosition.split(''), size);
-			newPosition = getPosition(step, stepArray[i - 1].newPosition, grid);
-		}
+		const step =
+			i === 0 ? randomStep(finish.split(''), size) : randomStep(stepArray[i - 1].newPosition.split(''), size);
+		const newPosition =
+			i === 0 ? getPosition(step, finish, grid) : getPosition(step, stepArray[i - 1].newPosition, grid);
 		stepArray.push({
 			newPosition: newPosition,
 			moveName: step
